@@ -9,7 +9,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -19,7 +20,6 @@
     "firebase": "^6.1.1",
     "nuxt": "^2.4.0",
     "nuxt-fire": "^1.4.1",
-    "vue-spinner": "^1.0.3",
     "vue-sweetalert2": "^2.0.5"
   },
   "devDependencies": {
