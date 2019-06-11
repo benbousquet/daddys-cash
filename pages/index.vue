@@ -1,56 +1,60 @@
 <template>
-  <section class="container">
+  <section>
     <div>
-      <logo/>
-      <h1 class="title">daddys-cash</h1>
-      <h2 class="subtitle">p2p loans</h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+      <h1 class="title is-1">Daddy's Cash 💸</h1>
+      <h2 class="subtitle is-2">Fast p2p loans</h2>
+      <div>
+        <nuxt-link
+          to="/login"
+          v-if="loggedIn == false"
+          class="button is-rounded is-primary"
+        >Login / Register</nuxt-link>
+        <div v-if="loggedIn">
+          <h2 class="subtitle is-3">
+            Welcome back
+            <b>{{user.email}}</b>
+            ! Your balance is ${{user.balance}}
+          </h2>
+          <a class="button is-rounded is-primary" @click="logout($swal)">Logout</a>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      user: [],
+      loggedIn: null
+    };
+  },
+  beforeCreate() {
+    this.$fireAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.user = user;
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    });
+  },
+  methods: {
+    logout(swal) {
+      this.$fireAuth
+        .signOut()
+        .then(function() {
+          swal({
+            type: "success",
+            title: "Bye 👋",
+            text: "Successfully logged out!"
+          });
+        })
+        .catch(function(err) {
+          swal({ type: "error", text: "err" });
+        });
+    }
   }
 };
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

@@ -40,7 +40,8 @@ export default {
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     "@nuxtjs/bulma",
     "@nuxtjs/pwa",
-    "nuxt-fire"
+    "nuxt-fire",
+    "vue-sweetalert2/nuxt"
   ],
   /*
    ** Axios module configuration
@@ -63,20 +64,20 @@ export default {
     functionsLocation: "us-central1",
     config: {
       development: {
-        apiKey: "AIzaSyAlReVc_oN_FBmkvXtMBEP3Mu9Fi-jrKYM",
-        authDomain: "daddys-cash-b5e51.firebaseapp.com",
-        databaseURL: "https://daddys-cash-b5e51.firebaseio.com",
-        projectId: "daddys-cash-b5e51",
-        storageBucket: "daddys-cash-b5e51.appspot.com",
-        messagingSenderId: "5465644636"
+        apiKey: "AIzaSyAFW5JjAP9l6TVl1sr1FnspjdA9fYQe2oQ",
+        authDomain: "daddys-cash-f8908.firebaseapp.com",
+        databaseURL: "https://daddys-cash-f8908.firebaseio.com",
+        projectId: "daddys-cash-f8908",
+        storageBucket: "daddys-cash-f8908.appspot.com",
+        messagingSenderId: "765092853452"
       },
       production: {
-        apiKey: "AIzaSyAlReVc_oN_FBmkvXtMBEP3Mu9Fi-jrKYM",
-        authDomain: "daddys-cash-b5e51.firebaseapp.com",
-        databaseURL: "https://daddys-cash-b5e51.firebaseio.com",
-        projectId: "daddys-cash-b5e51",
-        storageBucket: "daddys-cash-b5e51.appspot.com",
-        messagingSenderId: "5465644636"
+        apiKey: "AIzaSyAFW5JjAP9l6TVl1sr1FnspjdA9fYQe2oQ",
+        authDomain: "daddys-cash-f8908.firebaseapp.com",
+        databaseURL: "https://daddys-cash-f8908.firebaseio.com",
+        projectId: "daddys-cash-f8908",
+        storageBucket: "daddys-cash-f8908.appspot.com",
+        messagingSenderId: "765092853452"
       }
     }
   },
