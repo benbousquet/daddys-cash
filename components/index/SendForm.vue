@@ -66,6 +66,16 @@ export default {
                   balance: this.balance
                 })
                 .then(() => {
+                  db.collection("users")
+                    .where("email", "==", this.borrower)
+                    .get()
+                    .then(doc => {
+                      doc.docs[0].ref.set({
+                        balance:
+                          doc.docs[0].data().balance + parseInt(this.loan),
+                        email: doc.docs[0].data().email
+                      });
+                    });
                   this.$swal({
                     type: "success",
                     title: "We got you!",
