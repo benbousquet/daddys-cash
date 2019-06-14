@@ -13,9 +13,13 @@
           <h2 class="subtitle is-3">
             Welcome back
             <b>{{user.email}}</b>
-            ! Your balance is ${{user.balance}}
+            <Balance/>
           </h2>
-          <a class="button is-rounded is-primary" @click="logout($swal)">Logout</a>
+          <LogoutButton/>
+
+          <SendForm/>
+          <LenderList/>
+          <BorrowerList/>
         </div>
       </div>
     </div>
@@ -23,7 +27,19 @@
 </template>
 
 <script>
+import SendForm from "~/components/index/SendForm";
+import Balance from "~/components/index/Balance";
+import LenderList from "~/components/index/LenderList";
+import BorrowerList from "~/components/index/BorrowerList";
+import LogoutButton from "~/components/auth/LogoutButton";
 export default {
+  components: {
+    SendForm,
+    Balance,
+    LogoutButton,
+    LenderList,
+    BorrowerList
+  },
   data() {
     return {
       user: [],
@@ -39,22 +55,6 @@ export default {
         this.loggedIn = false;
       }
     });
-  },
-  methods: {
-    logout(swal) {
-      this.$fireAuth
-        .signOut()
-        .then(function() {
-          swal({
-            type: "success",
-            title: "Bye 👋",
-            text: "Successfully logged out!"
-          });
-        })
-        .catch(function(err) {
-          swal({ type: "error", text: "err" });
-        });
-    }
   }
 };
 </script>
