@@ -1,11 +1,13 @@
 <template>
-  <div class="columns form">
-    <h2>Loan Money</h2>
-    <h2>$</h2>
-    <input class="input" v-model="loan" type="text" placeholder="$0">
-    <h2>To:</h2>
-    <input class="input" v-model="borrower" type="text" placeholder="Jeff">
-    <a class="button is-rounded is-success" @click="loanMoney">Send</a>
+  <div class="box">
+    <div class="columns form">
+      <h2>Loan</h2>
+      <h2>$</h2>
+      <input class="input" v-model="loan" type="text" placeholder="10">
+      <h2>To</h2>
+      <input class="input" v-model="borrower" type="text" placeholder="Jeff">
+      <a class="button is-rounded is-success send" @click="loanMoney">Send</a>
+    </div>
   </div>
 </template>
 
@@ -99,6 +101,10 @@ export default {
 <style scoped>
 .form {
   padding-top: 20px;
+  padding-bottom: 20px;
+}
+.send {
+  margin-left: 5px;
 }
 h2 {
   padding: 5px;

@@ -9,37 +9,16 @@
           v-if="loggedIn == false"
           class="button is-rounded is-primary"
         >Login / Register</nuxt-link>
-        <div v-if="loggedIn">
-          <h2 class="subtitle is-3">
-            Welcome back
-            <b>{{user.email}}</b>
-            <Balance/>
-          </h2>
-          <LogoutButton/>
-
-          <SendForm/>
-          <LenderList/>
-          <BorrowerList/>
-        </div>
+        <nuxt-link class="button is-rounded is-primary" to="/profile">My Profile</nuxt-link>
+        <nuxt-link class="button is-rounded is-primary" to="/lend">Lend</nuxt-link>
+        <nuxt-link class="button is-rounded is-primary" to="/borrow">Borrow</nuxt-link>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import SendForm from "~/components/index/SendForm";
-import Balance from "~/components/index/Balance";
-import LenderList from "~/components/index/LenderList";
-import BorrowerList from "~/components/index/BorrowerList";
-import LogoutButton from "~/components/auth/LogoutButton";
 export default {
-  components: {
-    SendForm,
-    Balance,
-    LogoutButton,
-    LenderList,
-    BorrowerList
-  },
   data() {
     return {
       user: [],
